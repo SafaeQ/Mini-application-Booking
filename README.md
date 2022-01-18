@@ -9,3 +9,4 @@ npm install jsonwebtoken
 npm install http
 npm install mongodb
 npm install jsonwebtoken -- save
+npm install mongoose
