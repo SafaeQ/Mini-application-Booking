@@ -1,0 +1,19 @@
+{
+  "name": "mini-application-booking",
+  "version": "1.0.0",
+  "description": "Booking est une application de réservation en ligne permettant aux particuliers de faciliter leurs réservations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SafaeQ/Mini-application-Booking.git"
+  },
+  "author": "safae",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SafaeQ/Mini-application-Booking/issues"
+  },
+  "homepage": "https://github.com/SafaeQ/Mini-application-Booking#readme"
+}
