@@ -19,7 +19,7 @@ http.listen(port, () => {
     }, (err, client) => {
         if (err) throw err
 
-        let db = client.db('Booking_App');
+        const db = client.db('Booking_App');
         console.log(` My Mongo Database Booking_App is running `)
     })
 });
