@@ -9,3 +9,5 @@ const http = require('http').createServer(app);
 http.listen(port, () => {
     console.log(`The server is listening on port http://localhost:${port}`)
 });
+
+app.use('/', router)
