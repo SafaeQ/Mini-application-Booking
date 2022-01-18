@@ -13,10 +13,14 @@ const http = require('http').createServer(app);
 http.listen(port, () => {
     console.log(`The server is listening on port http://localhost:${port}`)
 
-    MongoClient.connect('mongodb://localhost:27017', (err, client) => {
+    MongoClient.connect('mongodb://127.0.0.1:27017', {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    }, (err, client) => {
+        if (err) throw err
 
-        let dbName = client.db('Booking_App');
-        console.log(` My Mongo Database ${dbName} is running `)
+        let db = client.db('Booking_App');
+        console.log(` My Mongo Database Booking_App is running `)
     })
 });
 
