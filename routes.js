@@ -5,4 +5,6 @@ router.get('/', function (req, res) {
     res.send('Lovely')
 })
 
+router.get('/signup')
+
 module.exports = router;
