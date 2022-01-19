@@ -35,11 +35,6 @@ const signup = async (req, res, next) => {
             password: encryptedPassword,
         })
 
-        // create token 
-        // const token = jwt.sign({
-        //     user_id: user._id,
-        //     email
-        // }, )
 
         // return new user
         res.status(200).json(user)

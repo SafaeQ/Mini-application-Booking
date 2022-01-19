@@ -12,6 +12,6 @@ router.get('/', function (req, res) {
     })
 })
 
-router.get('/signup', signup)
+router.post('/signup', signup)
 
 module.exports = router;
