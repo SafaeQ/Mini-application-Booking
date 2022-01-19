@@ -2,7 +2,10 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', function (req, res) {
-    res.send('Lovely')
+    res.json({
+        status: 'API is working',
+        message: 'Lovely'
+    })
 })
 
 router.get('/signup')

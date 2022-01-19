@@ -11,12 +11,12 @@ const signup = (req, res, next) => {
         password: req.body.password
     })
 
-    user.save((err, user) => {
-        if (err) {
-            res.status(500).send(err.message)
-            return;
-        }
-    })
+    // user.save((err, user) => {
+    //     if (err) {
+    //         res.status(500).send(err.message)
+    //         return;
+    //     }
+    // })
 }
 
 module.exports = {

@@ -1,5 +1,6 @@
 const router = require('./routes')
 const express = require('express');
+let bodyParser = require('body-parser')
 const {
     MongoClient
 } = require('mongodb')
@@ -12,8 +13,8 @@ const http = require('http').createServer(app);
 // start the server at port 8080
 http.listen(port, () => {
     console.log(`The server is listening on port http://localhost:${port}`)
-
-    MongoClient.connect('mongodb://127.0.0.1:27017', {
+    con = 'mongodb://127.0.0.1:27017'
+    MongoClient.connect(con, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     }, (err, client) => {
