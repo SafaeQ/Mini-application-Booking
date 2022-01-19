@@ -17,9 +17,8 @@ const signup = async (req, res, next) => {
         } = req.body;
         // validation 
         if (!(email && password && username)) {
-            res.status(400).send('okay')
+            res.status(400).send('oh oh')
         }
-
 
         // encrypt password
         let encryptedPassword = await bcrypt.hash(password, 10)
@@ -51,6 +50,36 @@ const signup = async (req, res, next) => {
 
 }
 
+const signin = async (req, res) => {
+    try {
+        const {
+            email,
+            password
+        } = req.body;
+
+        const user = await User.findOne({
+            email
+        });
+
+        if (user && (await bcrypt.compare(password, user.password))) {
+            const token = jwt.sign({
+                    user_id: user._id,
+                    email
+                },
+                "secret", {
+                    expiresIn: "1h",
+                }
+            )
+            user.token = token;
+            res.status(200).json(user);
+        }
+        res.status(400).send("Invalid Credentials");
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 module.exports = {
-    signup
+    signup,
+    signin
 }

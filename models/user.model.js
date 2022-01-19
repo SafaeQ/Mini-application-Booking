@@ -14,10 +14,10 @@ const User = mongoose.model('User',
         password: {
             type: String,
         },
-        roles: [{
+        roles: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Role'
-        }],
+        },
         token: {
             type: String
         },
