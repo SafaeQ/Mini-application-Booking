@@ -7,6 +7,7 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
 const signup = async (req, res, next) => {
+
     try {
         // get user 
         const {
@@ -19,15 +20,6 @@ const signup = async (req, res, next) => {
             res.status(400).send('okay')
         }
 
-        // check if user is already exost in the database
-        const oldUser = await User.findOne({
-            where: {
-                email: req.body.email
-            }
-        })
-        if (oldUser) {
-            return res.status(409).send('user already exists')
-        }
 
         // encrypt password
         let encryptedPassword = await bcrypt.hash(password, 10)
@@ -39,6 +31,7 @@ const signup = async (req, res, next) => {
             password: encryptedPassword,
         })
         // Create token
+
         const token = jwt.sign({
                 user_id: user._id,
                 email: user.email,
