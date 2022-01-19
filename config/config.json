@@ -1,7 +1,7 @@
 {
   "development": {
     "database": {
-      "url": "mongodb://localhost/Booking_App",
+      "url": "mongodb://127.0.0.1:27017/booking_app",
       "options": {
         "useNewUrlParser": true
       }
