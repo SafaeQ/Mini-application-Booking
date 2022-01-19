@@ -17,6 +17,9 @@ const User = mongoose.model('User',
         roles: [{
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Role'
-        }]
+        }],
+        token: {
+            type: String
+        },
     }))
 module.exports = User;

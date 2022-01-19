@@ -21,13 +21,13 @@ const signup = async (req, res, next) => {
 
         // check if user is already exost in the database
         const oldUser = await User.findOne({
-            email
+            where: {
+                email: req.body.email
+            }
         })
         if (oldUser) {
             return res.status(409).send('user already exists')
         }
-
-
 
         // encrypt password
         let encryptedPassword = await bcrypt.hash(password, 10)
@@ -41,10 +41,11 @@ const signup = async (req, res, next) => {
         // Create token
         const token = jwt.sign({
                 user_id: user._id,
-                email
+                email: user.email,
+                password: user.id
             },
-            process.env.TOKEN_KEY, {
-                expiresIn: "2h",
+            "secret", {
+                expiresIn: "1h",
             }
         );
         // save user token
