@@ -1,12 +1,14 @@
 const router = require('./routes')
 const express = require('express');
 let bodyParser = require('body-parser')
-const {
-    MongoClient
-} = require('mongodb')
+let mongoose = require('mongoose')
+
 const app = express();
 const port = 8080;
 
+app.use(bodyParser.urlencoded({
+    extended: true
+}))
 const http = require('http').createServer(app);
 
 
