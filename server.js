@@ -5,12 +5,12 @@ let mongoose = require('mongoose')
 
 const app = express();
 const port = 8080;
+const http = require('http').createServer(app);
 
 app.use(bodyParser.urlencoded({
     extended: true
 }))
 app.use(bodyParser.json)
-const http = require('http').createServer(app);
 
 mongoose.connect('mongodb://127.0.0.1:27017', {
     useNewUrlParser: true
