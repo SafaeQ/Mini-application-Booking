@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
+const {
+    signup
+} = require('./controllers/auth.controller')
+
 router.get('/', function (req, res) {
     res.json({
         status: 'API is working',
@@ -8,6 +12,6 @@ router.get('/', function (req, res) {
     })
 })
 
-router.get('/signup')
+router.get('/signup', signup)
 
 module.exports = router;
