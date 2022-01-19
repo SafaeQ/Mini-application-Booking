@@ -17,12 +17,14 @@ mongoose.connect('mongodb://127.0.0.1:27017', {
 });
 
 let db = mongoose.Connection;
+
+if (!db) console.log('Error with connection')
+else console.log('My Mongo Database Booking_App is running')
+
+
 // start the server at port 8080
 http.listen(port, () => {
     console.log(`The server is listening on port http://localhost:${port}`)
-
-    console.log(` My Mongo Database Booking_App is running `)
-
 });
 
 app.use('/', router)
