@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router(); //create new obj of router
 
+// import functions of users from controller
 const {
     signup,
     signin
