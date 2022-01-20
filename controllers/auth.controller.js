@@ -40,6 +40,7 @@ const signup = async (req, res, next) => {
                 expiresIn: "1h",
             }
         );
+
         // save user token
         user.token = token;
         // return new user
@@ -66,7 +67,7 @@ const signin = async (req, res) => {
 
         // encrypt password
         if (user && (await bcrypt.compare(password, user.password))) {
-
+            // Create token
             const token = jwt.sign({
                     user_id: user._id,
                     email
