@@ -5,7 +5,6 @@ let bodyParser = require('body-parser')
 
 const app = express();
 const port = 8080;
-//const http = require('http').createServer(app);
 
 app.use(bodyParser.urlencoded({
     extended: true
