@@ -6,6 +6,7 @@ let bodyParser = require('body-parser')
 const app = express();
 const port = 8080;
 
+//  parses urlencoded bodies and only looks at requests
 app.use(bodyParser.urlencoded({
     extended: true
 }))
