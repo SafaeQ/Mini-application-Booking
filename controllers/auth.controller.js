@@ -51,8 +51,9 @@ const signup = async (req, res, next) => {
 }
 
 const signin = async (req, res) => {
-    // get user
+
     try {
+        // get user
         const {
             email,
             password
