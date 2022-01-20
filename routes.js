@@ -15,6 +15,7 @@ router.get('/', function (req, res) {
     })
 })
 
+// my api
 router.post('/signup', signup)
 router.post('/login', signin)
 
