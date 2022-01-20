@@ -7,6 +7,7 @@ const {
     signin
 } = require('./controllers/auth.controller')
 
+// test
 router.get('/', function (req, res) {
     res.json({
         status: 'API is working',
