@@ -12,11 +12,6 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json())
 
 
-// let db = mongoose.Connection; 
-
-// if (!db) console.log('Error with connection')
-// else console.log('My Mongo Database Booking_App is running')
-
 app.use('/', router)
 
 // start the server at port 8080
