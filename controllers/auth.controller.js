@@ -74,6 +74,8 @@ const signin = async (req, res) => {
                     expiresIn: "1h",
                 }
             )
+
+            // save user token
             user.token = token;
             res.status(200).json(user);
         }
