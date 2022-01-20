@@ -29,8 +29,8 @@ const signup = async (req, res, next) => {
             email: email.toLowerCase(),
             password: encryptedPassword,
         })
-        // Create token
 
+        // Create token
         const token = jwt.sign({
                 user_id: user._id,
                 email: user.email,
@@ -66,6 +66,7 @@ const signin = async (req, res) => {
 
         // encrypt password
         if (user && (await bcrypt.compare(password, user.password))) {
+
             const token = jwt.sign({
                     user_id: user._id,
                     email
