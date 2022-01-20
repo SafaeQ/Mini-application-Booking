@@ -79,6 +79,7 @@ const signin = async (req, res) => {
 
             // save user token
             user.token = token;
+            // if the request has succeeded
             res.status(200).json(user);
         }
 
