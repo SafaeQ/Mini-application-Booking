@@ -59,6 +59,7 @@ const signin = async (req, res) => {
             password
         } = req.body;
 
+        //  get user from db by email
         const user = await User.findOne({
             email
         });
