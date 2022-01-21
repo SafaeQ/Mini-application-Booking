@@ -47,12 +47,12 @@ const signup = async (req, res, next) => {
         // return new user
         res.status(200).json(user)
 
-        res.render('signup')
+
 
     } catch (error) {
         console.log(error)
     }
-
+    res.render('auth/signup.ejs')
 }
 
 const signin = async (req, res) => {
