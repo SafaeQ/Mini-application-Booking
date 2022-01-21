@@ -101,7 +101,7 @@ module.exports = {
 }
 
 // function initial() {
-//     Role.countDocuments({}, (err, count) => {
+//     Role.countDocuments((err, count) => {
 //         if (!err && count === 0) {
 //             new Role({
 //                 name: 'admin'
