@@ -19,7 +19,7 @@ const signup = async (req, res, next) => {
         } = req.body;
         // validation 
         if (!(email && password && username && roles)) {
-            res.status(400).send('oh oh')
+            res.status(400)
         }
 
         // encrypt password
@@ -48,7 +48,8 @@ const signup = async (req, res, next) => {
         // save user token
         user.token = token;
         // return new user
-        res.status(200).json(user)
+        res.send(user);
+        // res.status(200).json(user)
 
     } catch (error) {
         console.log(error)
@@ -100,28 +101,3 @@ module.exports = {
     signup,
     signin
 }
-
-// function initial() {
-//     Role.countDocuments((err, count) => {
-//         if (!err && count === 0) {
-//             new Role({
-//                 name: 'admin'
-//             }).save(err => {
-//                 if (err) throw err
-//                 console.log('add "admin" to roles');
-//             });
-//             new Role({
-//                 name: 'user'
-//             }).save(err => {
-//                 if (err) throw err
-//                 console.log('add "user" to roles');
-//             })
-//             new Role({
-//                 name: 'particular'
-//             }).save(err => {
-//                 if (err) throw err
-//                 console.log('add "particular" to roles')
-//             })
-//         }
-//     })
-// }
