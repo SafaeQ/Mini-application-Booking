@@ -52,7 +52,7 @@ const signup = async (req, res, next) => {
     } catch (error) {
         console.log(error)
     }
-    res.render('auth/signup.ejs')
+    // res.render('auth/signup.ejs')
 }
 
 const signin = async (req, res) => {
