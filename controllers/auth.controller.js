@@ -46,6 +46,9 @@ const signup = async (req, res, next) => {
         user.token = token;
         // return new user
         res.status(200).json(user)
+
+        res.render('signup')
+
     } catch (error) {
         console.log(error)
     }

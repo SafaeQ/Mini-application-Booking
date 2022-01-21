@@ -9,10 +9,11 @@ const {
 
 // test
 router.get('/', function (req, res) {
-    res.json({
-        status: 'API is working',
-        message: 'Lovely'
-    })
+    // res.json({
+    //     status: 'API is working',
+    //     message: 'Lovely'
+    // })
+    res.render('index')
 })
 
 // my api
