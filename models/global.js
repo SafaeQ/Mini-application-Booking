@@ -10,4 +10,6 @@ db.role = require('./role.model')
 
 db.ROLES = ['user', 'admin', 'particular']
 
-module.exports = db
+module.exports = {
+    db
+}
