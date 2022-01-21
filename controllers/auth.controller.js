@@ -14,10 +14,11 @@ const signup = async (req, res, next) => {
         const {
             username,
             email,
-            password
+            password,
+            roles
         } = req.body;
         // validation 
-        if (!(email && password && username)) {
+        if (!(email && password && username && roles)) {
             res.status(400).send('oh oh')
         }
 
@@ -29,6 +30,7 @@ const signup = async (req, res, next) => {
             username,
             email: email.toLowerCase(),
             password: encryptedPassword,
+            roles
         })
 
         // Create token
@@ -36,7 +38,7 @@ const signup = async (req, res, next) => {
                 user_id: user._id,
                 email: user.email,
                 password: user.id,
-                role: role.Role
+                roles: user.roles
             },
             "secret", {
                 expiresIn: "1h",
@@ -47,8 +49,6 @@ const signup = async (req, res, next) => {
         user.token = token;
         // return new user
         res.status(200).json(user)
-
-
 
     } catch (error) {
         console.log(error)
