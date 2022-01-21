@@ -22,7 +22,7 @@ const db = () => {
       return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
     })
     .forEach(file => {
-      const model = require(path.resolve(__dirname, file))(Mongoose);
+      const model = require(path.resolve(__dirname, file));
       m[model.modelName] = model;
     });
 
