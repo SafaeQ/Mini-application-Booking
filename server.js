@@ -11,9 +11,17 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(bodyParser.json())
 
+// static files => to serve this files
+app.use(express.static('assets'))
+app.use('/css', express.static(__dirname + 'asset/css'))
+
+// set template engine
+app.use(expressLayouts)
+app.set('layout', '.layouts/layout.ejs')
+app.set('view engine', 'ejs') //declare that we're using ejs
+app.set('views', 'views') // spicify with directory
+
 app.use('/', router)
-
-
 
 // start the server at port 8080
 app.listen(port, () => {
