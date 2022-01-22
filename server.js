@@ -4,6 +4,7 @@ const expressLayouts = require('express-ejs-layouts')
 const app = express();
 const port = 8080;
 const router = require('./routes/routes')
+const authRouter = require('./routes/routes')
 
 //  parses urlencoded bodies and only looks at requests
 app.use(bodyParser.urlencoded({
@@ -22,6 +23,8 @@ app.set('view engine', 'ejs') //declare that we're using ejs
 app.set('views', 'views') // spicify with directory
 
 app.use('/', router)
+
+app.use('/auth', authRouter)
 
 // start the server at port 8080
 app.listen(port, () => {

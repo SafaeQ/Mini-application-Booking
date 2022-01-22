@@ -8,10 +8,8 @@ const {
 } = require('../controllers/auth.controller')
 
 
-// my api
+// my api for auth
 authRouter.post('/signup', auth_signup)
 authRouter.post('/login', auth_login)
 
-module.exports = {
-    authRouter
-}
+module.exports = authRouter
