@@ -3,8 +3,8 @@ const router = express.Router(); //create new obj of router
 
 // import functions of users from controller
 const {
-    signup,
-    signin
+    auth_signup,
+    auth_login
 } = require('./controllers/auth.controller')
 
 // test
@@ -17,7 +17,7 @@ router.get('/', function (req, res) {
 })
 
 // my api
-router.post('/signup', signup)
-router.post('/login', signin)
+router.post('/signup', auth_signup)
+router.post('/login', auth_login)
 
 module.exports = router;

@@ -7,10 +7,10 @@ const {
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const {
-    userToken
+    token
 } = require('../utils/token')
 
-const signup = async (req, res, next) => {
+const auth_signup = async (req, res, next) => {
 
     // get user 
     const {
@@ -56,13 +56,13 @@ const signup = async (req, res, next) => {
                 throw err
             })
 
+        // / save user token
+        user.token = token;
+
         console.log(user)
         return res.json({
-            token: userToken(user)
+            token: token(user),
         })
-
-        // save user token
-        user.token = token;
 
         // return new user
         res.send(user);
@@ -74,7 +74,8 @@ const signup = async (req, res, next) => {
     // res.render('auth/signup.ejs')
 }
 
-const signin = async (req, res) => {
+
+const auth_login = async (req, res) => {
 
     try {
         // get user
@@ -88,20 +89,12 @@ const signin = async (req, res) => {
             email
         });
 
+        console.log('dsq');
         // encrypt password
         if (user && (await bcrypt.compare(password, user.password))) {
-            // Create token
-            const token = jwt.sign({
-                    user_id: user._id,
-                    email
-                },
-                "secret", {
-                    expiresIn: "1h",
-                }
-            )
 
             // save user token
-            user.token = token;
+            user.token = token(user);
             // if the request has succeeded
             res.status(200).json(user);
         }
@@ -115,6 +108,6 @@ const signin = async (req, res) => {
 
 
 module.exports = {
-    signup,
-    signin
+    auth_signup,
+    auth_login
 }

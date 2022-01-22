@@ -1,17 +1,15 @@
 const jwt = require('jsonwebtoken')
 
 // Create token
-const userToken = (user) => {
-    // const timestamp = new Date().getTime()
+const token = (user) => {
     return jwt.sign({
         user_id: user._id,
         email: user.email,
-        // at: timestamp,
-        role: user.role
+        roles: user.roles
 
     }, 'secret')
 }
 
 module.exports = {
-    userToken
+    token
 }
