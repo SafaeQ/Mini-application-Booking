@@ -4,7 +4,7 @@ const expressLayouts = require('express-ejs-layouts')
 const app = express();
 const port = 8080;
 const router = require('./routes/routes')
-const authRouter = require('./routes/routes')
+const authRouter = require('./routes/auth.routes')
 
 //  parses urlencoded bodies and only looks at requests
 app.use(bodyParser.urlencoded({

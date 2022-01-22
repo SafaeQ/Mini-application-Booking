@@ -7,13 +7,14 @@ const {
     auth_login
 } = require('../controllers/auth.controller')
 
+// console.log(auth_signup);
 
 // my api for auth
-authRouter.get('/auth/signup', (req, res) => {
-    // res.send('hello')
-    res.render('/auth/signup')
+authRouter.get('/signup', (req, res) => {
+    // console.log('fd');
+    res.send('hello')
 })
-authRouter.post('/auth/signup', auth_signup)
+authRouter.post('/signup', auth_signup)
 authRouter.post('/login', auth_login)
 
 module.exports = authRouter
