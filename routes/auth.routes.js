@@ -12,7 +12,8 @@ const {
 // my api for auth
 authRouter.get('/signup', (req, res) => {
     // console.log('fd');
-    res.send('hello')
+    // res.send('hello')
+    res.render('auth/signup')
 })
 authRouter.post('/signup', auth_signup)
 authRouter.post('/login', auth_login)
