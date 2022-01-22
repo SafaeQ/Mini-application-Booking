@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-// Create the schema for the user model
+// define the name of model and its properties with mongoose
 const User = mongoose.model('User',
 
     new mongoose.Schema({
@@ -22,8 +22,5 @@ const User = mongoose.model('User',
         token: {
             type: String
         },
-        timestamp: {
-            type: Number
-        }
     }))
 module.exports = User;
