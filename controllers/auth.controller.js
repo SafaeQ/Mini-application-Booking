@@ -71,7 +71,7 @@ const auth_signup = async (req, res, next) => {
     } catch (error) {
         console.error(error)
     }
-    // res.render('auth/signup.ejs')
+    res.render('auth/signup')
 }
 
 
