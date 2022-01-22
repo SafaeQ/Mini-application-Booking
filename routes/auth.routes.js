@@ -9,7 +9,11 @@ const {
 
 
 // my api for auth
-authRouter.post('/signup', auth_signup)
+authRouter.get('/auth/signup', (req, res) => {
+    // res.send('hello')
+    res.render('/auth/signup')
+})
+authRouter.post('/auth/signup', auth_signup)
 authRouter.post('/login', auth_login)
 
 module.exports = authRouter
