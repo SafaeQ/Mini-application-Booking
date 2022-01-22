@@ -28,5 +28,8 @@
     "mongoose": "^6.1.7",
     "nodemon": "^2.0.15",
     "save": "^2.4.0"
+  },
+  "devDependencies": {
+    "husky": "^7.0.4"
   }
 }
