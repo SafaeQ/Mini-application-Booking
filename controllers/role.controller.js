@@ -1,8 +1,8 @@
-// const {
-//     models: {
-//         Role
-//     }
-// } = require('../models')
+const {
+    models: {
+        Role
+    }
+} = require('../models')
 
 // function initial() {
 //     Role.countDocuments((err, count) => {
