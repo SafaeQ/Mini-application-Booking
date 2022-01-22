@@ -5,7 +5,7 @@ const router = express.Router(); //create new obj of router
 const {
     auth_signup,
     auth_login
-} = require('./controllers/auth.controller')
+} = require('../controllers/auth.controller')
 
 // test
 router.get('/', function (req, res) {
