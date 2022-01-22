@@ -30,7 +30,7 @@ const signup = async (req, res, next) => {
             username,
             email: email.toLowerCase(),
             password: encryptedPassword,
-            roles
+            // roles
         })
 
         // Create token
@@ -38,7 +38,7 @@ const signup = async (req, res, next) => {
                 user_id: user._id,
                 email: user.email,
                 password: user.id,
-                roles: user.roles
+                // roles: user.roles
             },
             "secret", {
                 expiresIn: "1h",
