@@ -22,5 +22,8 @@ const User = mongoose.model('User',
         token: {
             type: String
         },
+        timestamp: {
+            type: Number
+        }
     }))
 module.exports = User;
