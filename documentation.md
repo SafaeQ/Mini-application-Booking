@@ -15,6 +15,7 @@ The default pre-commit hook, when enabled—​and with the hooks.allownonascii 
 
 ### passport-local
 
+- https://github.com/jaredhanson/passport-local/ 
 - Passport strategy for authenticating with a username and password.
 
 - This module lets you authenticate using a username and password in your Node.js applications. By plugging into Passport, local authentication can be easily and unobtrusively integrated into any application or framework that supports Connect-style middleware, including Express.
