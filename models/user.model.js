@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const Role = require('./role.model')
 // define the name of model and its properties with mongoose
 const User = mongoose.model('User',
 
@@ -15,7 +15,7 @@ const User = mongoose.model('User',
         password: {
             type: String,
         },
-        roles: {
+        role: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Role'
         },

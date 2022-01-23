@@ -17,7 +17,7 @@ const auth_signup = async (req, res, next) => {
         username,
         email,
         password,
-        roles
+        role
     } = req.body;
 
     // validation 
@@ -50,7 +50,7 @@ const auth_signup = async (req, res, next) => {
                 username,
                 email: email.toLowerCase(),
                 password: encryptedPassword,
-                roles
+                role
             })
             .catch((err) => {
                 throw err
@@ -71,7 +71,7 @@ const auth_signup = async (req, res, next) => {
     } catch (error) {
         console.error(error)
     }
-    res.render('auth/signup')
+    // res.render('auth/signup')
 }
 
 
