@@ -40,3 +40,7 @@ npx mongoosejs-cli
 ```
 npx mongoosejs-cli init
 ```
+
+```
+npm install passport-local
+```
