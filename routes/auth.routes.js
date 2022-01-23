@@ -13,9 +13,10 @@ const {
 
 // passport
 const requireSignIn = passport.authenticate('local', {
+    // make it safely by setting session option to false
     session: false,
-    // successRedirect: '/',
-    // failureRedirect: '/test',
+    successRedirect: '/auth/test',
+    failureRedirect: '/',
 })
 
 // my api for auth
@@ -31,4 +32,7 @@ authRouter.get('/login', (req, res) => {
 })
 authRouter.post('/login', requireSignIn, auth_login)
 
+authRouter.get('/test', (req, res) => {
+    res.render('test')
+})
 module.exports = authRouter
