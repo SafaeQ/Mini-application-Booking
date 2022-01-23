@@ -104,6 +104,7 @@ const auth_login = async (req, res) => {
     } catch (error) {
         console.log(error);
     }
+    res.render('auth/signin')
 }
 
 

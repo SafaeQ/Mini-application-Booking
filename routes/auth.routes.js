@@ -14,8 +14,8 @@ const {
 // passport
 const requireSignIn = passport.authenticate('local', {
     session: false,
-    // successRedirect: '/views/test',
-    // failureRedirect: '/',
+    // successRedirect: '/',
+    // failureRedirect: '/test',
 })
 
 // my api for auth
@@ -24,7 +24,11 @@ authRouter.get('/signup', (req, res) => {
     // res.send('hello')
     res.render('auth/signup')
 })
-authRouter.post('/signup', requireSignIn, auth_signup)
-authRouter.post('/login', auth_login)
+authRouter.post('/signup', auth_signup)
+
+authRouter.get('/login', (req, res) => {
+    res.render('auth/signin')
+})
+authRouter.post('/login', requireSignIn, auth_login)
 
 module.exports = authRouter

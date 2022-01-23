@@ -20,7 +20,7 @@ passport.use(new LocalStrategy({
 
             })
             console.log(user);
-            if (err) return done(err);
+            // if (err) return done(err);s
             if (!user) return done(null, false, {
                 message: 'incorrect email'
             })
