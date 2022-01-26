@@ -107,7 +107,32 @@ const remove_hotel = async (req, res) => {
 }
 
 const update_hotel = async (req, res) => {
-
+    const {
+        _id
+    } = req.body;
+    const data = {
+        name: req.body.name,
+        ville: req.body.ville,
+        date: req.body.date,
+        stars: req.body.stars,
+        image: req.body.image,
+        adress: req.body.adress,
+    }
+    try {
+        const result = await Hotel
+            .findByIdAndUpdate({
+                where: {
+                    id: _id
+                },
+                data
+            })
+            .catch((err) => {
+                throw err
+            })
+        res.status(200).send(result)
+    } catch (error) {
+        console.error(error)
+    }
 }
 module.exports = {
     getAllHotels,
