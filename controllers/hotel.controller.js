@@ -6,21 +6,15 @@ const {
 
 const getAllHotels = async (req, res) => {
     const {
-        name,
-        ville,
-        date,
-        stars,
-        images
-    } = req.body;
-
+        id
+    } = req.params
+    console.log(id);
     try {
         const hotel = await Hotel
             .find({
-                name: name,
-                ville: ville,
-                date: date,
-                stars: stars,
-                images: images
+                where: {
+                    id: Number(id)
+                }
             })
             .catch((e) => {
                 throw e;
@@ -51,28 +45,17 @@ const get_single_Hotel = async (req, res) => {
 }
 
 const create_hotel = async (req, res) => {
-    const {
-        id,
-        name,
-        ville,
-        date,
-        stars,
-        image,
-        adress
-    } = req.body;
+    const hotel = new Hotel({
+        name: req.body.name,
+        ville: req.body.ville,
+        date: req.body.date,
+        stars: req.body.stars,
+        image: req.body.image,
+        adress: req.body.adress
+    })
+
     try {
-        const result = await Hotel
-            .create({
-                data: {
-                    id,
-                    name,
-                    ville,
-                    date,
-                    stars,
-                    image,
-                    adress
-                },
-            })
+        const result = await hotel.save()
             .catch((err) => {
                 throw err;
             })
@@ -107,29 +90,21 @@ const remove_hotel = async (req, res) => {
 }
 
 const update_hotel = async (req, res) => {
-    const {
-        _id
-    } = req.body;
-    const data = {
-        name: req.body.name,
-        ville: req.body.ville,
-        date: req.body.date,
-        stars: req.body.stars,
-        image: req.body.image,
-        adress: req.body.adress,
-    }
+    let hotel;
     try {
-        const result = await Hotel
-            .findByIdAndUpdate({
-                where: {
-                    id: _id
-                },
-                data
-            })
+        hotel = await Hotel.findById(req.params.id)
+        hotel.name = req.body.name,
+            hotel.ville = req.body.ville,
+            hotel.date = req.body.date,
+            hotel.stars = req.body.stars,
+            hotel.image = req.body.image,
+            hotel.adress = req.body.adress
+
+        await hotel.save()
             .catch((err) => {
                 throw err
             })
-        res.status(200).send(result)
+        res.status(200).send(hotel)
     } catch (error) {
         console.error(error)
     }
