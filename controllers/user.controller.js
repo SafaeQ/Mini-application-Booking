@@ -36,7 +36,8 @@ const remove_user = async (req, res) => {
             .catch(err => {
                 console.error(err);
             })
-        res.status(200).send(user)
+        // res.status(200).send(user)
+        res.status(200).json('Your Hotel has been removed successfully')
     } catch (error) {
         console.error(error)
     }
