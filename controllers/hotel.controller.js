@@ -13,6 +13,7 @@ const getAllHotels = async (req, res) => {
                 throw e;
             })
         res.status(200).send(hotel)
+
     } catch (error) {
         console.error(error)
     }
