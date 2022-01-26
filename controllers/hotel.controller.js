@@ -64,17 +64,16 @@ const create_hotel = async (req, res) => {
 const remove_hotel = async (req, res) => {
     const id = req.params.id
     let hotel;
+    console.log(id);
     try {
-        hotel = await Hotel.findById(id)
-        await hotel.remove()
+        hotel = await Hotel.findByIdAndRemove(id)
+            // await hotel.remove()ز
             .catch((error) => {
                 throw error
             })
-        if (hotel.count === id) {
-            res.status(200).json('Your Hotel has been removed successfully')
-        } else {
-            res.status(200).json('no hotel found!')
-        }
+
+        res.status(200).json('Your Hotel has been removed successfully')
+        // res.status(200).send('hotel is deleted')
     } catch (error) {
         console.error(error)
     }
