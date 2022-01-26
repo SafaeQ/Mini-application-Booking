@@ -5,17 +5,10 @@ const {
 } = require('../models')
 // 
 const getAllHotels = async (req, res) => {
-    const {
-        id
-    } = req.params
-    // console.log(id);
+
     try {
         const hotel = await Hotel
-            .find({
-                where: {
-                    id: Number(id)
-                }
-            })
+            .find({})
             .catch((e) => {
                 throw e;
             })
