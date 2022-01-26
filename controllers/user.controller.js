@@ -28,7 +28,21 @@ const get_single_user = async (req, res) => {
         console.log(error);
     }
 }
+
+const remove_user = async (req, res) => {
+    const id = req.params.id
+    try {
+        const user = await User.findByIdAndRemove(id)
+            .catch(err => {
+                console.error(err);
+            })
+        res.status(200).send(user)
+    } catch (error) {
+        console.error(error)
+    }
+}
 module.exports = {
     getAllUsers,
-    get_single_user
+    get_single_user,
+    remove_user
 }
