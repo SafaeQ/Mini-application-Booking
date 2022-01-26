@@ -32,6 +32,25 @@ const getAllHotels = async (req, res) => {
 
 }
 
+const get_single_Hotel = async (req, res) => {
+    const _id = req.params
+    try {
+        const hotel = await Hotel
+            .findById({
+                where: {
+                    id: _id
+                }
+            })
+            .catch(err => {
+                throw err
+            })
+        res.status(200).send(hotel)
+    } catch (error) {
+        console.error(error)
+    }
+}
+
 module.exports = {
-    getAllHotels
+    getAllHotels,
+    get_single_Hotel
 }
