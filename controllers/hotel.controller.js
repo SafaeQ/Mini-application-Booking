@@ -10,7 +10,25 @@ const getAllHotels = async (req, res) => {
         ville,
         date,
         stars,
-        price,
         images
     } = req.body;
+
+    try {
+        const hotel = await Hotel
+            .findMany({
+                name: name,
+                ville: ville,
+                date: date,
+                stars: stars,
+                images: images
+            })
+            .catch((e) => {
+                throw e;
+            })
+        res.status(200).send(hotel)
+
+    } catch (error) {
+        console.error(error)
+    }
+
 }
