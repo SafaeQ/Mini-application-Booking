@@ -5,6 +5,9 @@ const app = express();
 const port = 8080;
 const router = require('./routes/routes')
 const authRouter = require('./routes/auth.routes')
+const {
+    hotelRouter
+} = require('./routes/hotel.routes')
 
 //  parses urlencoded bodies and only looks at requests
 app.use(bodyParser.urlencoded({
@@ -25,6 +28,7 @@ app.set('views', 'views') // spicify witch directory
 app.use('/', router)
 
 app.use('/auth', authRouter)
+app.use('/api', hotelRouter)
 
 // start the server at port 8080
 app.listen(port, () => {

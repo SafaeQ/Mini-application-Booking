@@ -15,7 +15,7 @@ const getAllHotels = async (req, res) => {
 
     try {
         const hotel = await Hotel
-            .findMany({
+            .find({
                 name: name,
                 ville: ville,
                 date: date,
@@ -25,10 +25,13 @@ const getAllHotels = async (req, res) => {
             .catch((e) => {
                 throw e;
             })
-            .
         res.status(200).send(hotel)
     } catch (error) {
         console.error(error)
     }
 
+}
+
+module.exports = {
+    getAllHotels
 }
