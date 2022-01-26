@@ -30,6 +30,7 @@ const Hotel = mongoose.model('Hotel',
         adress: {
             type: String,
             default: null,
-        }
+        },
     })
 )
+module.exports = Hotel
