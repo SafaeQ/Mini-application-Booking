@@ -3,12 +3,12 @@ const {
         Hotel
     }
 } = require('../models')
-
+// 
 const getAllHotels = async (req, res) => {
     const {
         id
     } = req.params
-    console.log(id);
+    // console.log(id);
     try {
         const hotel = await Hotel
             .find({
@@ -25,16 +25,12 @@ const getAllHotels = async (req, res) => {
     }
 
 }
-
+// 
 const get_single_Hotel = async (req, res) => {
-    const _id = req.params
+    const id = req.params.id
     try {
         const hotel = await Hotel
-            .findById({
-                where: {
-                    id: _id
-                }
-            })
+            .findById(id)
             .catch(err => {
                 throw err
             })
@@ -43,7 +39,7 @@ const get_single_Hotel = async (req, res) => {
         console.error(error)
     }
 }
-
+// 
 const create_hotel = async (req, res) => {
     const hotel = new Hotel({
         name: req.body.name,
@@ -66,20 +62,15 @@ const create_hotel = async (req, res) => {
 }
 
 const remove_hotel = async (req, res) => {
-    const {
-        id
-    } = req.body;
+    const id = req.params.id
+    let hotel;
     try {
-        const result = await Hotel
-            .delete({
-                where: {
-                    id: _id
-                }
-            })
+        hotel = await Hotel.findById(id)
+        await hotel.remove()
             .catch((error) => {
                 throw error
             })
-        if (result.count === 1) {
+        if (hotel.count === id) {
             res.status(200).json('Your Hotel has been removed successfully')
         } else {
             res.status(200).json('no hotel found!')
@@ -88,7 +79,7 @@ const remove_hotel = async (req, res) => {
         console.error(error)
     }
 }
-
+// 
 const update_hotel = async (req, res) => {
     let hotel;
     try {
