@@ -1,38 +1,38 @@
 const {
     models: {
-        User
+        Client
     }
 } = require('../models')
 
-const getAllUsers = async (req, res) => {
+const getAllClients = async (req, res) => {
     try {
-        const user = await User.find({})
+        const client = await Client.find({})
             .catch((e) => {
                 throw e
             })
-        res.status(200).send(user)
+        res.status(200).send(client)
     } catch (error) {
         console.error(error)
     }
 }
 
-const get_single_user = async (req, res) => {
+const get_single_client = async (req, res) => {
     const id = req.params.id
     try {
-        const user = await User.findById(id)
+        const client = await Client.findById(id)
             .catch((err) => {
                 throw err
             })
-        res.status(200).send(user)
+        res.status(200).send(client)
     } catch (error) {
         console.log(error);
     }
 }
 
-const remove_user = async (req, res) => {
+const remove_client = async (req, res) => {
     const id = req.params.id
     try {
-        const user = await User.findByIdAndRemove(id)
+        const client = await Client.findByIdAndRemove(id)
             .catch(err => {
                 console.error(err);
             })
@@ -43,7 +43,7 @@ const remove_user = async (req, res) => {
     }
 }
 module.exports = {
-    getAllUsers,
-    get_single_user,
-    remove_user
+    getAllClients,
+    get_single_client,
+    remove_client
 }
