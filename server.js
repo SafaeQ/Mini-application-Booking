@@ -6,6 +6,7 @@ const port = 8080;
 const router = require('./routes/routes')
 const authRouter = require('./routes/auth.routes')
 const userRouter = require('./routes/user.routes')
+const clientRouter = require('./routes/client.routes')
 const {
     hotelRouter
 } = require('./routes/hotel.routes')
@@ -31,6 +32,7 @@ app.use('/', router)
 app.use('/auth', authRouter)
 app.use('/api', hotelRouter)
 app.use('/api', userRouter)
+app.use('/api', clientRouter)
 
 // start the server at port 8080
 app.listen(port, () => {

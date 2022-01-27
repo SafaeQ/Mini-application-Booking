@@ -6,7 +6,9 @@ const {
 
 const getAllClients = async (req, res) => {
     try {
-        const client = await Client.find({})
+        const client = await Client.find({
+                role: "61f25961bda8a3b29a0728d4"
+            })
             .catch((e) => {
                 throw e
             })
