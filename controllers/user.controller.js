@@ -6,11 +6,15 @@ const {
 
 const getAllUsers = async (req, res) => {
     try {
-        const user = await User.find({})
-            .catch((e) => {
-                throw e
-            })
-        res.status(200).send(user)
+        if (user.id === "61ed89a0a3e06a23fc32758e") {
+            const user = await User.find({})
+                .catch((e) => {
+                    throw e
+                })
+            res.status(200).send(user)
+        } else {
+            console.log('something went wrong');
+        }
     } catch (error) {
         console.error(error)
     }
