@@ -1,11 +1,10 @@
 const {
     models: {
         User,
-        Role
     }
 } = require('../models')
 const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
+
 const {
     token
 } = require('../utils/token')
@@ -35,7 +34,7 @@ const auth_signup = async (req, res, next) => {
     //     }
     // })
 
-    // if (checkExistingUser) {
+    // if (!checkExistingUser) {
     //     return res.status(400).send({
     //         error: 'hey u this is not ur email...'
     //     })
@@ -63,10 +62,6 @@ const auth_signup = async (req, res, next) => {
         return res.json({
             token: token(user),
         })
-
-        // return new user
-        res.send(user);
-        // res.status(200).json(user)
 
     } catch (error) {
         console.error(error)
