@@ -4,20 +4,19 @@ const {
     }
 } = require('../models')
 const multer = require('multer')
+const path = require('path')
 
 // set distination of the img
 const storage = multer.diskStorage({
-    destination: '/assets/images',
+    destination: '../assets/images',
     filename: (req, file, cb) => {
         const uniqueSuffix = Date.now()
-        cb(null, file.fieldname + '-' + uniqueSuffix)
+        cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname))
     }
 })
 const upload = multer({
     storage: storage
-})
-
-
+}).array('photos', 12)
 // 
 const getAllHotels = async (req, res) => {
     const hotel = await Hotel
@@ -42,7 +41,14 @@ const get_single_Hotel = async (req, res) => {
 }
 // 
 const create_hotel = async (req, res) => {
-    upload.array('photos', 12)
+    upload(req, res, (err) => {
+        if (err) {
+            res.status(500).send('something went wrong')
+        } else {
+            console.log(req.files);
+            // res.send('test')
+        }
+    })
     const {
         name,
         ville,

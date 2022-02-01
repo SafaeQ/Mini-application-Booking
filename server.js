@@ -11,6 +11,7 @@ const {
     hotelRouter
 } = require('./routes/hotel.routes')
 
+
 //  parses urlencoded bodies and only looks at requests
 app.use(bodyParser.urlencoded({
     extended: true
