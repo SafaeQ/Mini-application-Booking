@@ -5,19 +5,11 @@ const {
 } = require('../models')
 // 
 const getAllHotels = async (req, res) => {
-
-    try {
-        const hotel = await Hotel
-            .find({})
-            .catch((e) => {
-                throw e;
-            })
-        res.status(200).send(hotel)
-
-    } catch (error) {
-        console.error(error)
-    }
-
+    const hotel = await Hotel
+        .find({})
+    if (!hotel)
+        return res.status(400).send('Sorry We Can Not Get Your Request!')
+    res.status(200).send(hotel)
 }
 // 
 const get_single_Hotel = async (req, res) => {
