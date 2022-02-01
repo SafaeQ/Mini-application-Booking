@@ -20,7 +20,6 @@ const Hotel = mongoose.model('Hotel',
         },
 
         images: [{
-            data: Buffer,
             type: Array,
             default: null,
         }],

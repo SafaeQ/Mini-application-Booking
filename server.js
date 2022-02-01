@@ -35,7 +35,6 @@ app.use('/api', hotelRouter)
 app.use('/api', userRouter)
 app.use('/api', clientRouter)
 
-// start the server at port 8080
 app.listen(port, () => {
     console.log(`The server is listening on port http://localhost:${port}`)
 });
