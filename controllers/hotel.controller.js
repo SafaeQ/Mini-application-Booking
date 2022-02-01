@@ -3,6 +3,16 @@ const {
         Hotel
     }
 } = require('../models')
+const multer = require('multer')
+
+// get distination of the img
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'images')
+    }
+})
+
+
 // 
 const getAllHotels = async (req, res) => {
     const hotel = await Hotel
