@@ -5,11 +5,9 @@ const {
 } = require('../models')
 const multer = require('multer')
 
-// get distination of the img
+// set distination of the img
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, '/assets/images')
-    },
+    destination: '/assets/images',
     filename: (req, file, cb) => {
         const uniqueSuffix = Date.now()
         cb(null, file.fieldname + '-' + uniqueSuffix)
@@ -44,24 +42,28 @@ const get_single_Hotel = async (req, res) => {
 }
 // 
 const create_hotel = async (req, res) => {
+    upload.array('photos', 12)
+    const {
+        name,
+        ville,
+        date,
+        stars,
+        image,
+        adress
+    } = req.body
     const hotel = new Hotel({
-        name: req.body.name,
-        ville: req.body.ville,
-        date: req.body.date,
-        stars: req.body.stars,
-        image: req.body.image,
-        adress: req.body.adress
+        name: name,
+        ville: ville,
+        date: date,
+        stars: stars,
+        image: image,
+        adress: adress
     })
 
-    try {
-        const result = await hotel.save()
-            .catch((err) => {
-                throw err;
-            })
-        res.send(result);
-    } catch (error) {
-        console.error(error)
-    }
+    const result = await hotel.save()
+    if (!result) return res.status(400).send("Sorry Hotel Does Not Added!");
+    res.send('Hotel added successfully!' + result);
+
 }
 
 const remove_hotel = async (req, res) => {
