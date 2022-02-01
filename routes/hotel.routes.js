@@ -7,20 +7,20 @@ const {
     remove_hotel,
     update_hotel
 } = require('../controllers/hotel.controller')
+const upload = require('../middlewares/multer')
+// const multer = require('multer')
+// const storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//         cb(null, "uploads/");
+//     },
+//     filename: function (req, file, cb) {
+//         cb(null, Date.now() + "-" + file.originalname);
+//     },
+// });
 
-const multer = require('multer')
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, "uploads/");
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + "-" + file.originalname);
-    },
-});
-
-const upload = multer({
-    storage: storage
-})
+// const upload = multer({
+//     storage: storage
+// })
 
 // my apis of CRUD hotel
 hotelRouter.get('/hotels', getAllHotels)
