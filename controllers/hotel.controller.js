@@ -8,8 +8,15 @@ const multer = require('multer')
 // get distination of the img
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'images')
+        cb(null, '/assets/images')
+    },
+    filename: (req, file, cb) => {
+        const uniqueSuffix = Date.now()
+        cb(null, file.fieldname + '-' + uniqueSuffix)
     }
+})
+const upload = multer({
+    storage: storage
 })
 
 
