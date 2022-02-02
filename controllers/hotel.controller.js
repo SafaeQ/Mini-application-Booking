@@ -28,12 +28,16 @@ const get_single_Hotel = async (req, res) => {
 }
 // 
 const create_hotel = async (req, res) => {
+    const uploadImageFiles = req.files
+    const images = []
+    for (const file of uploadImageFiles) {
+        images.push(file.filename)
+    }
     const {
         name,
         ville,
         date,
         stars,
-        image,
         adress
     } = req.body
     const hotel = new Hotel({
@@ -41,7 +45,7 @@ const create_hotel = async (req, res) => {
         ville: ville,
         date: date,
         stars: stars,
-        image: image,
+        image: images,
         adress: adress
     })
 
