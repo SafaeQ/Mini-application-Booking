@@ -8,15 +8,18 @@ const {
     update_hotel
 } = require('../controllers/hotel.controller')
 const upload = require('../middlewares/multer')
-
+const {
+    isAuth
+} = require('../middlewares/isAuth')
+// (req, res) => {
+//     console.log(req.files);
+//     res.send(req.files)
+// }
 
 // my apis of CRUD hotel
 hotelRouter.get('/hotels', getAllHotels)
 hotelRouter.get('/hotels/:id', get_single_Hotel)
-hotelRouter.post('/hotel', upload.array('images', 12), (req, res) => {
-    console.log(req.files);
-    res.send(req.files)
-})
+hotelRouter.post('/hotel', isAuth, upload.array('images', 12), create_hotel)
 hotelRouter.delete('/hotels/:id', remove_hotel)
 hotelRouter.put('/hotels/:id', update_hotel)
 module.exports = {
