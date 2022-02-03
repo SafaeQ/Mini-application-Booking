@@ -28,32 +28,34 @@ const get_single_Hotel = async (req, res) => {
 }
 // 
 const create_hotel = async (req, res) => {
-    const uploadImageFiles = req.files
+    // const uploadImageFiles = req.files
     // const images = []
     // for (const file of uploadImageFiles) {
     //     images.push(file.filename)
     // }
-    console.log(req.files);
+    // console.log(req.files);
     const {
         name,
         ville,
         date,
         stars,
-        image,
         adress
-    } = req.body
+    } = req.params
     const hotel = new Hotel({
         name: name,
         ville: ville,
         date: date,
         stars: stars,
-        image: image,
+        // image: image,
         adress: adress
     })
-
-    const result = await hotel.save()
-    if (!result) return res.status(400).send("Sorry Hotel Does Not Added!");
-    res.send('Hotel added successfully!' + result);
+    console.log(req.params);
+    try {
+        const result = await hotel.save()
+        return res.send(result);
+    } catch (error) {
+        console.error(error);
+    }
 
 }
 
