@@ -4,7 +4,7 @@ services:
     image: node
     container_name: booking-hotel-node
     ports:
-      - "9000:8080"
+      - "9000:9000"
     depends_on:
       - mongo-booking
 
