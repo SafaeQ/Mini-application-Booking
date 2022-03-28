@@ -1,7 +1,7 @@
 {
   "development": {
     "database": {
-      "url": "mongodb://127.0.0.1:27017/booking_app",
+      "url": "mongodb://mongo-booking:27017/booking_app",
       "options": {
         "useNewUrlParser": true
       }
@@ -9,7 +9,7 @@
   },
   "test": {
     "database": {
-      "url": "mongodb://localhost/mongoose_test",
+      "url": "mongodb://mongo-booking:27017/mongoose_test",
       "options": {
         "useNewUrlParser": true
       }
@@ -21,7 +21,7 @@
       "username": "root",
       "password": "password",
       "name": "database_production",
-      "host": "localhost",
+      "host": "mongo-booking",
       "port": "",
       "options": {
         "useNewUrlParser": true

@@ -2,15 +2,15 @@ services:
   api:
     build: .
     image: node
-    container_name: booking-node
+    container_name: booking-hotel-node
     ports:
       - "9000:8080"
     depends_on:
-      - mongo
+      - mongo-booking
 
-  mongo:
+  mongo-booking:
     image: mongo
-    container_name: database-mongo
+    container_name: db-mongo
     expose:
-      - "27017"
+      - "27017:27017"
 
