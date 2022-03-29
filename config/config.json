@@ -1,7 +1,7 @@
 {
   "development": {
     "database": {
-      "url": "mongodb://mongo-booking:27017/booking_app",
+      "url": "mongodb://127.0.0.1:27017/booking_app",
       "options": {
         "useNewUrlParser": true
       }
@@ -21,7 +21,7 @@
       "username": "root",
       "password": "password",
       "name": "database_production",
-      "host": "mongo-booking",
+      "host": "127.0.0.1",
       "port": "",
       "options": {
         "useNewUrlParser": true
