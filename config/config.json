@@ -16,16 +16,18 @@
     }
   },
   "production": {
-    "database": {
+    "database": {  
+      "url": "mongodb://mongo-booking:27017/booking_app",    
       "protocol": "mongodb",
       "username": "root",
-      "password": "password",
-      "name": "database_production",
-      "host": "127.0.0.1",
-      "port": "",
+      "password": "password",      
+      "name": "booking_app",
+      "host": "mongo-booking",
+      "port": "27017",
       "options": {
         "useNewUrlParser": true
-      }
+      },
+      "config":{}
     }
   }
 }

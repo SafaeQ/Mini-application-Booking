@@ -3,6 +3,7 @@ const path = require('path');
 const Mongoose = require('mongoose');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
+console.log(" -------------------------------- envirement variable : "+env+" ---------------------")
 const config = require(__dirname + '/../config/config.json')[env];
 
 if (config.database.url) {

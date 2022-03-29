@@ -2,12 +2,26 @@ services:
   mongo-booking:
     image: mongo
     container_name: db-mongo
-    ports:
-      - "27017:27017"
+    # ports:
+    #   - "27016:27017"
+    environment:
+      # MONGO_INITDB_ROOT_USERNAME: root
+      # MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: booking_app
+    networks:
+        - backend_net
   api:
       build: .
       container_name: booking-hotel-node
+      environment:
+        NODE_ENV: production
+        PORT: 9000
       ports:
         - "9000:9000"
       depends_on:
         - mongo-booking
+      networks:
+        - backend_net
+
+networks:
+  backend_net:  
